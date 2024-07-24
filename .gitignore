@@ -25,7 +25,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
+# local env files - had some issues with .env being added last time so declaring .env seperately
+.env
 .env*.local
 
 # vercel
