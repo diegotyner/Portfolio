@@ -4,8 +4,8 @@ import Image from 'next/image'
 
 const Home = () => {
   return (
-    <section className='w-full flex-center flex-col'>
-      <div className='hero_section flex justify-around'>
+    <section className='w-full'>
+      <div className='hero_section flex flex-col items-center sm:flex-row sm:justify-around'>
         <Image src='assets/icons/brain.svg' alt='pickaxe icon' width={250} height={250}></Image>
         <div className='hero_text flex flex-col pl-10 w-2/3'> {/*sm:min-w-2/5 w-2/3*/}
           <h1 className='text-2xl'>Hi There! </h1>
