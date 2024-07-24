@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: #000000;
+  --background-start-rgb: #8fe6e1;
+  --background-end-rgb: #2bc9c9;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+body {
+  min-height: 100vh;
+  color: var(--foreground-rgb);
+  background: radial-gradient(var(--background-start-rgb),var(--background-end-rgb));
+}
+
+/* @media (min-width: 640px) {
+  .app {
+      padding-left: 4rem;
+      padding-right: 4rem;
+  }
+} */
+.app {
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+}
+
+
+.logo_text {
+  @apply max-sm:hidden font-semibold text-xl text-black tracking-wide;
+}
+
+.nav_heading {
+  @apply text-gray-800 text-lg
+}
+
+
+
+@keyframes spin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+.outer_box {
+  margin-bottom: 2rem;
+  padding: 24px;
+  overflow: hidden;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  /* background: rgb(255, 255, 255); */
+
+  position: relative;
+  z-index: 1;
+}
+
+.inner_box {
+  width: 100px;
+  height: 100px;
+  background: rgb(14, 14, 14);
+  padding: 8px;
+
+  position: relative;
+  z-index: 3;
+}
+
+.spinner {
+  /* GRADIENT */
+  background: linear-gradient(
+    90deg,
+    rgb(0, 204, 255),
+    rgb(0, 64, 255),
+    rgb(197, 9, 244),
+    rgb(194, 11, 11)
+  );
+  /* REPEATING */
+  /* background: repeating-conic-gradient(
+    rgb(0, 0, 0) 0%,
+    rgb(0, 0, 0) 10%,
+    rgb(146, 42, 243) 20%
+  ); */
+  /* SHIMMER  */
+  /* background: conic-gradient(
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.75) 20%,
+    rgba(255, 255, 255, 0) 40%
+  ); */
+
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  scale: 1.75;
+  opacity: 0;
+
+  animation: spin 3s linear infinite;
+  transition: opacity 1s ease-in;
+}
+
+.slider {
+  background: linear-gradient(
+    90deg,
+    rgb(0, 204, 255),
+    rgb(0, 64, 255),
+    rgb(197, 9, 244),
+    rgb(194, 11, 11)
+  );
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 0;
+  height: 24px;
+  width: 0;
+
+  transition: width 0.25s ease-out;
+}
+
+.scissors {
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  color: white;
+  background: transparent;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  font-weight: 200;
+  font-size: 40px;
+
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.scissors > span {
+  position: relative;
+  z-index: 2;
+  display: block;
+  padding: 20px 40px;
+  background: #000000;
+}
+
+.scissors::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: white;
+  left: 100%;
+  top: 100%;
+
+  transition-property: top, left;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+}
+
+.scissors:hover::before {
+  left: 0;
+  top: 0;
+}
+
+.scissors::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: white;
+  left: -100%;
+  top: -100%;
+
+  transition-property: top, left;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-in-out;
+}
+
+.scissors:hover::after {
+  left: 0;
+  top: 0;
+}
