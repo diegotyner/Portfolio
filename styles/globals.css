@@ -1,12 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* https://colorhunt.co/palette/0f0f0f232d3f005b41008170 */
 :root {
+  --foreground-rgb: #ffffff;
+  --background-start-rgb: #232D3F;
+  --background-end-rgb: #0F0F0F;
+  --primary: #026e50;
+  --accent: #10af9a;
+}
+/* :root {
   --foreground-rgb: #000000;
   --background-start-rgb: #8fe6e1;
   --background-end-rgb: #2bc9c9;
-}
+  --accent: #0306c7;
+} */
+
+
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -17,6 +30,7 @@
 } */
 
 body {
+  font-family: "Playfair Display", serif;
   min-height: 100vh;
   color: var(--foreground-rgb);
   background: radial-gradient(var(--background-start-rgb),var(--background-end-rgb));
@@ -33,154 +47,20 @@ body {
 }
 
 
+.primary {
+  background-color: var(--primary);
+}
+.accent {
+  background-color: var(--accent);
+}
+
 .logo_text {
-  @apply max-sm:hidden font-semibold text-xl text-black tracking-wide;
+  color: var(--primary);
+  @apply max-sm:hidden font-semibold text-xl tracking-wide;
 }
 
 .nav_heading {
-  @apply text-gray-800 text-lg
+  color: var(--primary);
+  @apply text-lg
 }
 
-
-
-@keyframes spin {
-  from {
-    rotate: 0deg;
-  }
-  to {
-    rotate: 360deg;
-  }
-}
-
-.outer_box {
-  margin-bottom: 2rem;
-  padding: 24px;
-  overflow: hidden;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
-  /* background: rgb(255, 255, 255); */
-
-  position: relative;
-  z-index: 1;
-}
-
-.inner_box {
-  width: 100px;
-  height: 100px;
-  background: rgb(14, 14, 14);
-  padding: 8px;
-
-  position: relative;
-  z-index: 3;
-}
-
-.spinner {
-  /* GRADIENT */
-  background: linear-gradient(
-    90deg,
-    rgb(0, 204, 255),
-    rgb(0, 64, 255),
-    rgb(197, 9, 244),
-    rgb(194, 11, 11)
-  );
-  /* REPEATING */
-  /* background: repeating-conic-gradient(
-    rgb(0, 0, 0) 0%,
-    rgb(0, 0, 0) 10%,
-    rgb(146, 42, 243) 20%
-  ); */
-  /* SHIMMER  */
-  /* background: conic-gradient(
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.75) 20%,
-    rgba(255, 255, 255, 0) 40%
-  ); */
-
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  scale: 1.75;
-  opacity: 0;
-
-  animation: spin 3s linear infinite;
-  transition: opacity 1s ease-in;
-}
-
-.slider {
-  background: linear-gradient(
-    90deg,
-    rgb(0, 204, 255),
-    rgb(0, 64, 255),
-    rgb(197, 9, 244),
-    rgb(194, 11, 11)
-  );
-  position: absolute;
-  z-index: 2;
-  bottom: 0;
-  left: 0;
-  height: 24px;
-  width: 0;
-
-  transition: width 0.25s ease-out;
-}
-
-.scissors {
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
-  color: white;
-  background: transparent;
-  border: none;
-  position: relative;
-  overflow: hidden;
-  font-weight: 200;
-  font-size: 40px;
-
-  padding: 10px;
-  text-transform: uppercase;
-}
-
-.scissors > span {
-  position: relative;
-  z-index: 2;
-  display: block;
-  padding: 20px 40px;
-  background: #000000;
-}
-
-.scissors::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background: white;
-  left: 100%;
-  top: 100%;
-
-  transition-property: top, left;
-  transition-duration: 0.25s;
-  transition-timing-function: ease-in-out;
-}
-
-.scissors:hover::before {
-  left: 0;
-  top: 0;
-}
-
-.scissors::after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  background: white;
-  left: -100%;
-  top: -100%;
-
-  transition-property: top, left;
-  transition-duration: 0.25s;
-  transition-timing-function: ease-in-out;
-}
-
-.scissors:hover::after {
-  left: 0;
-  top: 0;
-}
