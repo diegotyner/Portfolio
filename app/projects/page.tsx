@@ -3,14 +3,16 @@ import Link from 'next/link';
 
 const Projects = () => {
   return (
-    <section className='w-full flex-center flex-col'>
+    <section className='w-full flex-center flex-col '>
       <h1 className='text-2xl'>
         What am I working on? &#129300;
       </h1>
+      <hr className='w-72 h-1 mb-1 text-slate-400'/>
       <span className='text-slate-400'>
         I have a couple projects that I want to work on: <br/>
+        - A machine learning program to recommend songs. <br/>
+        - An Astro website to host some Obsidian pages I want to make public. <br/>
         - A transplantable neural network, where you train neural networks seperately then combine them together later.<br/>
-        - A song recommender app.<br/>
         - An android app: Minimalist Phone. I'd love to cut back on screen time, and the official app is paid only. Will try to make myself soon. <br/>
       </span>
 
@@ -19,6 +21,27 @@ const Projects = () => {
       <h1 className='text-2xl'>
         What have I done?
       </h1>
+      <hr className='w-48 h-1 mb-1 text-slate-400'/>
+      <div className='flex gap-4'>
+        <h2 className='text-l'>Youtube Playlist Website</h2>
+        <a target="_blank" href="https://github.com/diegotyner/YT-Playlist-Website" rel="noopener noreferrer"><span className='text-[#10af9a] underline'>Github</span></a>
+        <a target="_blank" href="https://yt-playlist-website.vercel.app" rel="noopener noreferrer"><span className='text-[#10af9a] underline'>Demo</span></a>
+      </div>
+      <span className='text-slate-400'>
+        A social media-esque hub for saving and sharing Youtube Playlists. <br/>
+        Next.js and Supabase app that allows authenticated users to submit playlists, managing relations in a SQL database. <br/>
+        Save playlists to profile, download them locally, customize user preferences, and browse other users playlists. <br/>
+      </span>
+      <div className='flex gap-4'>
+        <h2 className='text-l'>Basketball Video Website</h2>
+        <a target="_blank" href="https://github.com/diegotyner/PublicBasketballWebsite" rel="noopener noreferrer"><span className='text-[#10af9a] underline'>Github</span></a>
+        <a target="_blank" href="https://public-basketball-website.vercel.app/" rel="noopener noreferrer"><span className='text-[#10af9a] underline'>Demo</span></a>
+      </div>
+      <span className='text-slate-400'>
+        I put initialy put together this project to learn react and to create a website of my basketball clips with searching and filtering. <br/>
+        I redid the website with the 2022 NBA playoffs (Dub Nation up). <br/>
+        A Vite frontend and MongoDB backend, CRUD operations on videos in websites, searching, and filtering through websites as well.
+      </span>
       <h2 className='text-l'>Calender Merger App</h2>
       <span className='text-slate-400'>
         A full stack web app with a Node.js/Express.js backend and MongoDB for storing Google OAuth tokens.<br/>
