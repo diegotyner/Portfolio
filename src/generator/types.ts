@@ -78,3 +78,17 @@ export const DEFAULT_GROWTH_CONFIG: GrowthConfig = {
   tropismStrength: 0.05,
   jitterAmount: 0.5,
 };
+
+export interface DepthConfig {
+  scaleMin: number; // size multiplier at z=0 (far)
+  scaleRange: number; // scale = scaleMin + z * scaleRange
+  opacityMin: number; // opacity at z=0 (far)
+  opacityRange: number; // opacity = opacityMin + z * opacityRange
+}
+
+export const DEFAULT_DEPTH_CONFIG: DepthConfig = {
+  scaleMin: 0.5,
+  scaleRange: 0.5,
+  opacityMin: 0.4,
+  opacityRange: 0.6,
+};

@@ -8,7 +8,7 @@ import {
   type GeneratorConfig,
   type GrowthConfig,
 } from '../generator';
-import ControlPanel from '../components/ControlPanel';
+import ControlPanel from '../components/SomaPanel';
 import GrowthPanel from '../components/GrowthPanel';
 import PetriCanvas from '../components/PetriCanvas';
 
@@ -27,8 +27,8 @@ export default function PetriDish() {
   }, [somas, growthConfig, config.seed]);
 
   return (
-    <div style={{ display: 'flex', height: '100vh', background: '#050507' }}>
-      <div style={{ width: 300, borderRight: '1px solid #1a1a22', display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
+    <div className="flex h-screen bg-[#050507]">
+      <div className="w-[300px] border-r border-[#1a1a22] flex flex-col overflow-y-auto">
         <ControlPanel
           config={config}
           onChange={setConfig}

@@ -63,21 +63,21 @@ export default function SingleCellCulture() {
 
 
   return (
-    <div style={{ display: 'flex', height: '100vh', background: '#050507' }}>
-      <div style={{ width: 280, borderRight: '1px solid #1a1a22', display: 'flex', flexDirection: 'column' }}>
-        <div style={{ padding: 16 }}>
-          <h2 style={{ fontSize: 14, marginBottom: 12, color: '#d8f5e3', fontFamily: 'monospace' }}>
+    <div className="flex h-screen bg-[#050507]">
+      <div className="w-[280px] border-r border-[#1a1a22] flex flex-col">
+        <div className="p-4">
+          <h2 className="text-[14px] mb-3 text-[#d8f5e3] font-mono">
             single-cell-culture
           </h2>
-          <label style={{ display: 'block', color: '#d8f5e3', fontFamily: 'monospace', fontSize: 13, marginBottom: 4 }}>
+          <label className="block text-[#d8f5e3] font-mono text-[13px] mb-1">
             seed: {seed}
           </label>
           <input type="number" value={seed} onChange={(e) => setSeed(Number(e.target.value))} />
         </div>
 
-        <div style={{ padding: '0 16px 16px', color: '#d8f5e3', fontFamily: 'monospace', fontSize: 13 }}>
-          <h3 style={{ fontSize: 13, marginBottom: 8, opacity: 0.8 }}>growth step</h3>
-          <label style={{ display: 'block', marginBottom: 4 }}>
+        <div className="px-4 pb-4 text-[#d8f5e3] font-mono text-[13px]">
+          <h3 className="text-[13px] mb-2 opacity-80">growth step</h3>
+          <label className="block mb-1">
             {visibleDepth === -1 ? `full tree (max depth ${maxDepth})` : `depth: ${visibleDepth} / ${maxDepth}`}
           </label>
           <input
@@ -89,9 +89,9 @@ export default function SingleCellCulture() {
               setIsPlaying(false);
               setVisibleDepth(Number(e.target.value));
             }}
-            style={{ width: '100%' }}
+            className="w-full"
           />
-          <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+          <div className="flex gap-2 mt-2">
             <button
               onClick={() => {
                 if (visibleDepth === -1 || visibleDepth >= maxDepth) setVisibleDepth(0);

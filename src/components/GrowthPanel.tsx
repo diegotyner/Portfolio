@@ -25,8 +25,8 @@ export default function GrowthPanel({ growthConfig, onChange }: Props) {
   const setJitterAmount = useSetField(growthConfig, onChange, 'jitterAmount');
 
   return (
-    <div style={{ padding: 16, background: '#0b0b0f', color: '#d8f5e3', fontFamily: 'monospace', fontSize: 13, overflowY: 'auto' }}>
-      <h3 style={{ fontSize: 13, marginBottom: 12, opacity: 0.8 }}>growth</h3>
+    <div className="p-4 bg-[#0b0b0f] text-[#d8f5e3] font-mono text-[13px] overflow-y-auto">
+      <h3 className="text-[13px] mb-3 opacity-80">growth</h3>
 
       <Field
         label="stem count"
@@ -133,9 +133,9 @@ function Field({
   children: React.ReactNode;
 }) {
   return (
-    <div style={{ marginBottom: 14 }}>
-      <label style={{ display: 'block', marginBottom: 4, opacity: 0.8 }}>
-        {label}: {value} <span style={{ opacity: 0.6 }}>(ex: {defaultValue})</span>
+    <div className="mb-[14px]">
+      <label className="block mb-1 opacity-80">
+        {label}: {value} <span className="opacity-60">(ex: {defaultValue})</span>
       </label>
       {children}
     </div>

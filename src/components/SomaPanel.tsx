@@ -26,20 +26,8 @@ export default function ControlPanel({ config, onChange, blurEnabled, onBlurTogg
   const setSomaRadiusRange = useSetField(config, onChange, 'somaRadiusRange');
 
   return (
-    <div
-      style={{
-
-        padding: 16,
-
-        background: '#0b0b0f',
-        color: '#d8f5e3',
-        fontFamily: 'monospace',
-        fontSize: 13,
-        overflowY: 'auto',
-        borderRight: '1px solid #1a1a22',
-      }}
-    >
-      <h2 style={{ fontSize: 14, marginBottom: 12 }}>petri-dish</h2>
+    <div className="p-4 bg-[#0b0b0f] text-[#d8f5e3] font-mono text-[13px] overflow-y-auto border-r border-[#1a1a22]">
+      <h2 className="text-[14px] mb-3">petri-dish</h2>
 
       <Field label={`seed: ${config.seed}`}>
         <input
@@ -72,7 +60,7 @@ export default function ControlPanel({ config, onChange, blurEnabled, onBlurTogg
       </Field>
 
       <Field label={`radius: ${config.somaRadiusRange[0]}–${config.somaRadiusRange[1]}`}>
-        <div style={{ display: 'flex', gap: 8 }}>
+        <div className="flex gap-2">
           <input
 
             type="range"
@@ -112,8 +100,8 @@ export default function ControlPanel({ config, onChange, blurEnabled, onBlurTogg
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: 14 }}>
-      <label style={{ display: 'block', marginBottom: 4, opacity: 0.8 }}>{label}</label>
+    <div className="mb-[14px]">
+      <label className="block mb-1 opacity-80">{label}</label>
       {children}
     </div>
 
