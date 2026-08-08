@@ -1,6 +1,25 @@
 import { createRNG, randRange } from "./rng";
 import type { GeneratorConfig, Soma } from "./types";
 
+function biasedZ(
+  rng: import("./rng").RNG,
+  x: number,
+  y: number,
+  config: GeneratorConfig,
+): number {
+  const cx = config.width / 2;
+  const cy = config.height / 2;
+  const maxDist = Math.hypot(cx, cy); // center to corner
+  const distFromCenter = Math.hypot(x - cx, y - cy) / maxDist; // 0 (center) .. 1 (corner)
+  const centerBias = 1 - distFromCenter; // 1 (center) .. 0 (corner)
+
+  const randomZ = randRange(rng, config.zRange[0], config.zRange[1]);
+  const biasStrength = config.zBiasStrength;
+
+  // lerp between pure-random and distance-determined
+  return randomZ + (centerBias - randomZ) * biasStrength;
+}
+
 /**
  * Places somas via rejection sampling: pick a random point, accept it only if
  * it's at least `somaMinSpacing` away from every previously placed soma.
@@ -24,7 +43,7 @@ export function generateSomas(config: GeneratorConfig): Soma[] {
       });
 
       if (!tooClose) {
-        const z = randRange(rng, config.zRange[0], config.zRange[1]);
+        const z = biasedZ(rng, x, y, config);
         const radius = randRange(
           rng,
           config.somaRadiusRange[0],

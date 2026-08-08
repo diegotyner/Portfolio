@@ -24,26 +24,30 @@ export interface GeneratorConfig {
 
   // z-depth
   zRange: [number, number]; // usually [0, 1]
+  zBiasStrength: number; // 0 = pure random z, 1 = fully distance-from-center determined
 }
 
 export const DEFAULT_CONFIG: GeneratorConfig = {
   width: 800,
   height: 800,
-  seed: 1,
+  seed: 42,
 
-  somaCount: 9,
+  somaCount: 4,
   somaRadiusRange: [8, 22],
-  somaMinSpacing: 60,
+  somaMinSpacing: 125,
   somaMaxAttempts: 40,
 
   zRange: [0, 1],
+  zBiasStrength: 0.25,
 };
 
 export interface Branch {
   id: number;
   somaId: number;
   parentId: number | null;
+  /** Local space: relative to the owning soma's origin (0,0), NOT world/canvas coordinates. */
   start: Point;
+  /** Local space: relative to the owning soma's origin (0,0), NOT world/canvas coordinates. */
   end: Point;
   startWidth: number;
   endWidth: number;
@@ -67,16 +71,16 @@ export interface GrowthConfig {
 
 export const DEFAULT_GROWTH_CONFIG: GrowthConfig = {
   stemCount: 3,
-  initialWidth: 5,
-  widthThreshold: 0.3,
+  initialWidth: 6,
+  widthThreshold: 0.15,
   taperRate: 0.95,
-  segmentLength: 30,
-  terminalLength: 10,
-  daughterRatio: 0.5,
+  segmentLength: 40,
+  terminalLength: 5,
+  daughterRatio: 0.65,
   forkProbability: 0.5,
   maxDepth: 12,
   tropismStrength: 0.05,
-  jitterAmount: 0.5,
+  jitterAmount: 0.6,
 };
 
 export interface DepthConfig {
