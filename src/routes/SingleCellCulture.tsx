@@ -109,10 +109,9 @@ export default function SingleCellCulture() {
         <GrowthPanel growthConfig={growthConfig} onChange={setGrowthConfig} />
       </div>
       <PetriCanvas
-        config={{ width: CANVAS_SIZE, height: CANVAS_SIZE, seed, somaCount: 1, somaRadiusRange: [14, 14], somaMinSpacing: 0, somaMaxAttempts: 1, zRange: [1, 1] }}
+        config={{ width: CANVAS_SIZE, height: CANVAS_SIZE, seed, somaCount: 1, somaRadiusRange: [14, 14], somaMinSpacing: 0, somaMaxAttempts: 1, zRange: [1, 1], zBiasStrength: 0 }}
         somas={[soma]}
         branches={branches}
-        blurEnabled={false}
       />
     </div>
   );
