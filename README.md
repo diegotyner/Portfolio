@@ -1,75 +1,19 @@
-# React + TypeScript + Vite
+# Diego Tyner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hey! This is currently a WIP, so while I'm getting this ready, feel free to check out my more mature personal summaries:
 
-Currently, two official plugins are available:
+1. [My github readme](https://github.com/diegotyner/diegotyner) - This is most up to date, and even has my resumes
+2. [My quartz project showcase](https://vault.tynerlab.com/Coding/Project-Showcase) - I have a somewhat dated summary of my projects on my quartz notes site.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Site
 
-## React Compiler
+Currently the idea is to get a neuron immunofluorescence themed portfolio. This means a deep black and nearly neon greens and blues. You can play around with my neuron simulations here:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [Petri dish](https://diego-tyner.vercel.app/petri-dish)
+- [Single cell culture](https://diego-tyner.vercel.app/single-cell-culture)
 
-## Expanding the ESLint configuration
+This generations are based on L-systems, a method of probabilistic generation using a formal grammar. I found these resources great for learning more about them:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+1. [Experiments in procedural dappled light shaders](https://jzhao.xyz/posts/dappled-light) - Highly recommend, Jacky hits it out of the park.
+2. [Drawing plants with L-systems](https://www.youtube.com/watch?v=1AB3N3nrVwQ&list=LL&index=1) - A introduction in processing to L-systems and using them to create trees
+3. [L-Neuron: A Modeling Tool for the Efficient Generation and Parsimonious Description of Dendritic Morphology](https://krasnow1.gmu.edu/cn3/L-Neuron/HTM/paper.htm) - A neuron specific variant of L-systems, very helpful in finetuning my implementation.
